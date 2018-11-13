@@ -23,8 +23,8 @@ export default {
   font: 'Acumin Variable Pro, ObviouslyVariable, Gibson, Avenir Next, Segoe UI, sans-serif',
   // custom colors
   colors: {
-    text: 'papayawhip',
-    background: 'black',
+    text: 'rgb(234, 234, 236)',
+    background: 'rgb(41, 43, 56)',
     link: '#0ff',
   },
   Provider: ({children}) => (
@@ -33,9 +33,10 @@ export default {
       {children}
     </React.Fragment>
   ),
+  transitionDuration: 0,
   h1: css`
     font-size: 3em;
-    font-variation-settings: "wdth" 400, "wght" 500;
+    font-variation-settings: "wdth" 115, "wght" 500, "slnt" 0;
   `
 }
   // Customize your presentation theme here.

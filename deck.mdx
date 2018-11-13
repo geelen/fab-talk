@@ -1,5 +1,7 @@
 import { Head } from 'mdx-deck'
 import Slab from './Slab'
+import Images from './Images'
+import Todo from './Todo'
 
 export { default as theme } from './theme'
 
@@ -31,52 +33,48 @@ I work from home, I don't see humans very often
 
 ---
 
+<Images urls={[
+  require('file-loader!./images/prince.jpg'),
+  require('file-loader!./images/whitney.jpg'),
+]}/>
+
+---
+
 # Disclaimer 3
 
-I work from home, I don't see humans very often
+---
 
-```notes
-- Cherry-picked quotes and opinions by smarter humans than me
-- I am trying to convince you all that a shift will happen
-- I have a vested interest in this happening
-```
+I'm not impartial
 
 ---
 
-# Status quo
-
-```notes
-- Create speaker notes in fenced code blocks
-```
+<Todo>
+LINC LOGO AND HOMEPAGE
+</Todo>
 
 ---
 
-# Server-rendering vs static rendering
+<Slab lines={`
+  1 1 70 100 WHY FRONTEND APPS NEED A
+  3.2 0.9 50 700 STANDARD
+  3.2 0.6 60 700 RUNTIME
+`}/>
 
 ---
 
-# SSR is hard*, client-side rendering is easy**
-  * * Because React isn't designed for it
-  * ** Because your developer machine is stronk
-
-```notes
-- SSR is just pre-rendering on-demand i.e. dumb as a post.
-```
+<Slab lines={`
+  3 0.8 100 700 BUT
+  4 0.8 50 700 GLEN
+`}/>
 
 ---
 
-# NoJS is the new JS || JS aint JS
-
-```notes
-- JS is not just the language that runs in the browser any more, it is now computer science's lowest common denominator
-- The world's most successful swamp monster
-```
+<Todo>
+Browsers!
+</Todo>
 
 ---
 
-# Ecosystem is everything
+<Todo>
 
-```notes
-- JS is not just the language that runs in the browser any more, it is now computer science's lowest common denominator
-- The world's most successful swamp monster
-```
+</Todo>
