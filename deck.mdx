@@ -1,7 +1,9 @@
 import { Head } from 'mdx-deck'
-import Slab from './Slab'
-import Images from './Images'
-import Todo from './Todo'
+import Slab from './components/Slab'
+import Layouts from './components/Layouts'
+import Todo from './components/Todo'
+import Video from './components/Video'
+import Tweet from './components/Tweet'
 
 export { default as theme } from './theme'
 
@@ -38,9 +40,9 @@ I work from home, I don't see humans very often
 
 ---
 
-export default Images([
-  require('file-loader!./images/prince.jpg'),
-  require('file-loader!./images/whitney.jpg'),
+export default Layouts.Images([
+  require('file-loader!./assets/prince.jpg'),
+  require('file-loader!./assets/whitney.jpg'),
 ])
 
 <Slab lines={`
@@ -192,6 +194,15 @@ The other option in the React world is to send down actual HTML
 - Video from React team
 - Tweet from React team
 ```
+---
+
+<Video videoId="eF7Ca06u58w"/>
+
+---
+
+export default Layouts.Light()
+
+<Tweet id="1057420260242931713" options={{conversation: 'none' }}/>
 
 ---
 
@@ -199,7 +210,8 @@ It's happening.gif
 
 ---
 
-# Part Two - How We Gonna Host This Shit?
+### Part Two
+# Hosting Dynamic Frontend Apps
 
 ---
 
@@ -216,17 +228,34 @@ It's happening.gif
 
 ---
 
-# Part Three - Introducing* FABs
+### Part Three
+# Introducing<br/>Frontend Application Bundles (FABs)
 
 ---
 
-# Part Three - Introducing* FABs
+### Part Three
+# Introducing*<br/>Frontend Application Bundles (FABs)
 
-'*' super not ready to use yet, pls don't @ me
+\* super not ready to use yet, pls don't @ me
 
-```notes
-There's nothing worse than somebody coming up to talk about something that sounds cool but doesn't really exist yet. Anyway sorry.
+---
+
+# Disclaimer 4
+
+There's nothing worse than somebody coming up to talk about something that sounds cool that doesn't exist yet.<br/>Anyway sorry.
+
+---
+
+### File Format
+
 ```
-
----
-
+my-app.b1c53da6.fab (zip file)
+  ├── settings.json
+  ├── runtime.js
+  └── _assets
+        ├── js
+        │   ├── main.7fcd9566.js
+        │   └── main.7fcd9566.js.map
+        └── media
+            └── logo_default.e925f90a.svg
+```

@@ -6,8 +6,6 @@ const H1 = styled.h1``
 const MAX_WIDTH = 115
 
 const size = ({ size, lh, total, length, max, width, weight }) => {
-  console.log({ size, lh, total, length, max, width, weight })
-
   const letter_spacing = width > MAX_WIDTH ? (width - MAX_WIDTH) / 100 : 0
 
   return `

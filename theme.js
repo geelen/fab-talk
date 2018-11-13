@@ -1,6 +1,6 @@
 import React from 'react'
 import theme from 'mdx-deck/themes'
-import { css, createGlobalStyle } from 'styled-components'
+import styled, { css, createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -44,8 +44,14 @@ export default {
     font-variation-settings: "wdth" 100, "wght" 500, "slnt" 0;
     margin-bottom: 0;
   `,
+  h3: css`
+    text-transform: uppercase;
+    font-variation-settings: "wdth" 100, "wght" 700, "slnt" 0;
+    letter-spacing: 0.1em;
+    color: #34e4e4;
+  `,
   p: css`
-    margin-top: 0;
+    margin: 0;
     font-variation-settings: "wdth" 80, "wght" 300, "slnt" 0;
   `
 }
