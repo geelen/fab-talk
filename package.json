@@ -15,5 +15,12 @@
   "devDependencies": {
     "mdx-deck": "^1.6.7"
   },
-  "name": "melbjs-november-18"
+  "name": "melbjs-november-18",
+  "dependencies": {
+    "file-loader": "^2.0.0",
+    "styled-components": "^4.1.1"
+  },
+  "resolutions": {
+    "**/styled-components": "^4.1.1"
+  }
 }
