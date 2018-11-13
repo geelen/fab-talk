@@ -36,7 +36,17 @@ export default {
   transitionDuration: 0,
   h1: css`
     font-size: 3em;
-    font-variation-settings: "wdth" 115, "wght" 500, "slnt" 0;
+    font-variation-settings: "wdth" 100, "wght" 500, "slnt" 0;
+  `,
+  h2: css`
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-variation-settings: "wdth" 100, "wght" 500, "slnt" 0;
+    margin-bottom: 0;
+  `,
+  p: css`
+    margin-top: 0;
+    font-variation-settings: "wdth" 80, "wght" 300, "slnt" 0;
   `
 }
   // Customize your presentation theme here.

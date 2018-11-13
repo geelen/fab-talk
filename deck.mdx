@@ -33,10 +33,14 @@ I work from home, I don't see humans very often
 
 ---
 
-<Images urls={[
+export default Images([
   require('file-loader!./images/prince.jpg'),
   require('file-loader!./images/whitney.jpg'),
-]}/>
+])
+
+<Slab lines={`
+  2 1 50 700 MY WORKMATES
+`}/>
 
 ---
 
@@ -75,6 +79,10 @@ Browsers!
 
 ---
 
-<Todo>
+## Runtime
 
-</Todo>
+Includes how the app is loaded
+
+---
+
+# Prediction 1
