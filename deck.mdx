@@ -23,6 +23,11 @@ export { default as theme } from './theme'
 
 This is my first talk for over a year
 
+
+```notes
+I super over-prepare talks usually so this is new for me
+```
+
 ---
 
 # Disclaimer 2
@@ -79,10 +84,149 @@ Browsers!
 
 ---
 
-## Runtime
-
-Includes how the app is loaded
+<Todo>
+Waterfall graph of a JS app. Needs to show execution time, not just download.
+</Todo>
 
 ---
 
-# Prediction 1
+## Runtime
+
+Includes delivery
+
+```notes
+This is somewhat unique to web apps.
+It's not always that important, but it usually is.
+There are other platforms where delivery is important, but not in the same way.
+```
+
+---
+
+<Todo>
+Back to waterfall
+</Todo>
+
+```notes
+What we're saying is that the performance of this network graph is part of the quality of your product. 
+```
+
+---
+
+<Slab lines={`
+  1 1 70 100 WHY FRONTEND APPS NEED A
+  3.2 0.9 50 700 STANDARD
+  3.2 0.6 60 700 RUNTIME
+`}/>
+
+```notes
+Ok so now we're finally ready to start this talk 
+```
+
+---
+
+# Part One - Beyond Static Rendering
+
+---
+
+<Todo>
+Waterfall
+</Todo>
+
+```notes
+Now, look at this graph. I'm not prepared enough to actually run this section as a demo so I'm going to point at this thing and try to get you to imagine what's going on.
+
+Let's think about what this graph means. We can see we have an initial period of waiting, then the HTML content is on the screen, then we go off and load the JS, and then we render it locally.
+
+In development, that works great. We have a powerful computer and an instantaneous network. We also have live-reload, so we don't have to spend much time here.
+
+But in production, this process is one of the most important things to optimise.
+```
+
+---
+
+<Todo>
+Waterfall with blank screenshot added after HTML, content after JS
+</Todo>
+
+```notes
+By default, using something like React that wants to be 100% client-rendered, you usually send down a blank HTML page. Then the JS boots and the app works.
+
+Who here deploys an app like this? Most of the time you're writing a product that requires sign-in, where people will be spending all day there, that sort of thing.
+
+There's nothing wrong with this approach, but it doesn't suit all use cases.
+```
+
+---
+
+<Todo>
+Waterfall with content screenshot added after HTML
+</Todo>
+
+```notes
+The other option in the React world is to send down actual HTML
+```
+
+---
+
+```notes
+- Slides from FEC around static rendering
+- Talk business units & learning from each-other
+- "No downside"
+- Gatsby event-driven builds
+```
+
+---
+
+# Rendering real HTML is _definitely_ better than not
+
+---
+
+# But we can do better
+
+---
+
+```notes
+- JS perf impact
+- Feels like a small thing but undermines "no downside"
+- Good news!
+- Video from React team
+- Tweet from React team
+```
+
+---
+
+It's happening.gif
+
+---
+
+# Part Two - How We Gonna Host This Shit?
+
+---
+
+```notes
+- Static is super easy
+- Cache + invalidate
+- Static + Serverless is the "cool thing" (fire it's the hot thing)
+- Lambdas no bueno for frontend apps critical path. Good for APIs
+```
+
+---
+
+# We want the benefits of serverless but on a platform fast enough to serve everything
+
+---
+
+# Part Three - Introducing* FABs
+
+---
+
+# Part Three - Introducing* FABs
+
+'*' super not ready to use yet, pls don't @ me
+
+```notes
+There's nothing worse than somebody coming up to talk about something that sounds cool but doesn't really exist yet. Anyway sorry.
+```
+
+---
+
