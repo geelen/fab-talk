@@ -1,4 +1,6 @@
 import { Head } from 'mdx-deck'
+import { Split } from 'mdx-deck/layouts'
+
 import Slab from './components/Slab'
 import Layouts from './components/Layouts'
 import Todo from './components/Todo'
@@ -59,9 +61,9 @@ I'm not impartial
 
 ---
 
-<Todo>
-LINC LOGO AND HOMEPAGE
-</Todo>
+export default Layouts.Gradient
+
+![](./assets/logo.svg)
 
 ---
 
@@ -80,19 +82,17 @@ LINC LOGO AND HOMEPAGE
 
 ---
 
-<Todo>
-Browsers!
-</Todo>
+![](./assets/browsers.png)
 
 ---
 
-<Todo>
-Waterfall graph of a JS app. Needs to show execution time, not just download.
-</Todo>
+export default Layouts.Light
+
+![](./assets/waterfall.png)
 
 ---
 
-## Runtime
+## RUNTIME
 
 Includes delivery
 
@@ -100,16 +100,6 @@ Includes delivery
 This is somewhat unique to web apps.
 It's not always that important, but it usually is.
 There are other platforms where delivery is important, but not in the same way.
-```
-
----
-
-<Todo>
-Back to waterfall
-</Todo>
-
-```notes
-What we're saying is that the performance of this network graph is part of the quality of your product. 
 ```
 
 ---
@@ -126,13 +116,14 @@ Ok so now we're finally ready to start this talk
 
 ---
 
-# Part One - Beyond Static Rendering
+### Part One
+# Beyond Static Rendering
 
 ---
 
-<Todo>
-Waterfall
-</Todo>
+export default Layouts.Light
+
+![](./assets/waterfall.png)
 
 ```notes
 Now, look at this graph. I'm not prepared enough to actually run this section as a demo so I'm going to point at this thing and try to get you to imagine what's going on.
@@ -146,9 +137,9 @@ But in production, this process is one of the most important things to optimise.
 
 ---
 
-<Todo>
-Waterfall with blank screenshot added after HTML, content after JS
-</Todo>
+export default Layouts.Light
+
+![](./assets/waterfall-1.png)
 
 ```notes
 By default, using something like React that wants to be 100% client-rendered, you usually send down a blank HTML page. Then the JS boots and the app works.
@@ -160,26 +151,75 @@ There's nothing wrong with this approach, but it doesn't suit all use cases.
 
 ---
 
-<Todo>
-Waterfall with content screenshot added after HTML
-</Todo>
-
-```notes
-The other option in the React world is to send down actual HTML
-```
+export default Layouts.Image(
+  require('file-loader!./assets/react foo talk/react foo talk.001.png')
+)
 
 ---
 
-```notes
-- Slides from FEC around static rendering
-- Talk business units & learning from each-other
-- "No downside"
-- Gatsby event-driven builds
-```
+export default Layouts.Image(
+  require('file-loader!./assets/react foo talk/react foo talk.002.png')
+)
 
 ---
 
-# Rendering real HTML is _definitely_ better than not
+export default Layouts.Image(
+  require('file-loader!./assets/react foo talk/react foo talk.003.png')
+)
+
+---
+
+# NO DOWNSIDE
+
+---
+
+export default Layouts.Image(
+  require('file-loader!./assets/galaxy-brain-1.png')
+, false)
+
+# Serve inital HTML
+
+---
+
+## Gatsby, NextJS, etc.
+
+---
+
+export default Layouts.Light
+
+![](./assets/waterfall-2.png)
+
+---
+
+export default Layouts.Light
+
+![](./assets/tti.gif)
+
+<figcaption>
+  https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+![](./assets/javascript-processing-times.png)
+
+<figcaption>
+  https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4
+</figcaption>
+
+---
+
+export default Layouts.Image(
+  require('file-loader!./assets/galaxy-brain-2.png')
+, false)
+
+# Bundle Splitting
+
+---
+
+# Current best practice
 
 ---
 
@@ -187,26 +227,83 @@ The other option in the React world is to send down actual HTML
 
 ---
 
-```notes
-- JS perf impact
-- Feels like a small thing but undermines "no downside"
-- Good news!
-- Video from React team
-- Tweet from React team
-```
+export default Layouts.Light
+
+![](./assets/portals-1.jpg)
+
+<figcaption>
+  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+![](./assets/portals-2.jpg)
+
+<figcaption>
+  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+![](./assets/portals-3.jpg)
+
+<figcaption>
+  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+![](./assets/portals-4.jpg)
+
+<figcaption>
+  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
+</figcaption>
+
+---
+
+export default Layouts.Image(
+  require('file-loader!./assets/galaxy-brain-3.png')
+, false)
+
+## Don't Rerender<br/>Things That Don't Change
+
+---
+
+## The Future of React
+
 ---
 
 <Video videoId="eF7Ca06u58w"/>
 
 ---
 
-export default Layouts.Light()
+export default Layouts.Light
 
 <Tweet id="1057420260242931713" options={{conversation: 'none' }}/>
 
 ---
 
-It's happening.gif
+export default Layouts.Image(
+  require('file-loader!./assets/galaxy-brain-4.png')
+, false)
+
+---
+
+export default Layouts.Image(
+  require('file-loader!./assets/galaxy-brain-4.png')
+, false)
+
+## Whatever the hell that just was
+
+---
+
+## React's Future is Server-Side
 
 ---
 
@@ -218,14 +315,34 @@ It's happening.gif
 # Hosting Static Apps
 
 * Simple
+* Portable
 * Can't really fail<br/>(You can still ship broken code tho)
-* Cloneable
 * Scalable
 * Efficient
 
 ```notes
 We can get all these for dynamic too
 ```
+
+---
+
+# Host your own?
+
+* Simple 🤷‍♂️
+* Portable 🤗
+* Can't really fail ❌
+* Scalable 😬
+* Efficient 😬
+
+---
+
+# "Serverless"
+
+* Simple 🤷‍♂️
+* Portable 🤗
+* Can't really fail 🤗
+* Scalable 🤗
+* Efficient ❌
 
 ---
 

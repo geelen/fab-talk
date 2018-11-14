@@ -14,6 +14,25 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'ObviouslyVariable';
     font-style: normal;
   }
+  
+  body::after {
+    content: '@glenmaddern';
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    color: white;
+    mix-blend-mode: difference;
+    opacity: 0.6;
+  }
+  
+  figcaption {
+    font-variation-settings: "wdth" 70, "wght" 300, "slnt" 0;
+    color: white;
+    mix-blend-mode: difference;
+    font-size: 0.7em;
+    margin-top: 1em;
+    opacity: 0.7;
+  }
 `
 
 export default {
@@ -36,13 +55,16 @@ export default {
   transitionDuration: 0,
   h1: css`
     font-size: 3em;
-    font-variation-settings: "wdth" 100, "wght" 500, "slnt" 0;
+    font-variation-settings: "wdth" 90, "wght" 700, "slnt" 0;
   `,
   h2: css`
-    text-transform: uppercase;
     font-size: 2.5em;
-    font-variation-settings: "wdth" 100, "wght" 500, "slnt" 0;
-    margin-bottom: 0;
+    font-variation-settings: "wdth" 90, "wght" 700, "slnt" 0;
+    margin: 0;
+    em {
+      font-style: inherit;    
+      font-variation-settings: "wdth" 90, "wght" 700, "slnt" 10;
+    }
   `,
   h3: css`
     text-transform: uppercase;

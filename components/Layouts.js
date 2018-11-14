@@ -1,11 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Image = styled.div`
-  background: url('${props => props.src}') no-repeat 50% 50%;
-  background-size: cover;
+const common = `
+  position: relative;
+  width: 100vw;
   height: 100vh;
-  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const Image = styled.div`
+  ${common};
+  background: url('${props => props.src}') no-repeat 50% 50%;
+  height: 100vh;
+  background-size: ${props => (props.contain ? 'contain' : 'cover')};
+  width: ${props => (props.fill ? '100vw' : '50vw')};
+  
+  > * {
+    opacity: 0.9;
+    text-shadow: 0 2px 2px #000;
+  }
 `
 
 const Images = styled.div`
@@ -15,16 +31,10 @@ const Images = styled.div`
   display: flex;
   top: 0;
   left: 0;
-  z-index: -1;
 `
 
 const Outer = styled.div`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${common};
   justify-content: flex-end;
 
   > :not(:first-child) {
@@ -33,17 +43,32 @@ const Outer = styled.div`
 `
 
 const Light = styled.div`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(white, #C5DFF2);
+  ${common};
+  background: radial-gradient(white, #c5dff2);
+
+  img {
+    max-height: 80vh;
+    max-width: 90vw;
+    box-shadow: 0 0 0 1px #eee, 0 0 0 7px white, 0 0 0 8px #ddd,
+      0 4px 24px 8px rgba(0, 0, 0, 0.3);
+  }
+`
+
+const Gradient = styled.div`
+  ${common};
+  background: linear-gradient(45deg, #8f3c90, #ff2954);
+
+  img {
+    height: 80vh;
+  }
 `
 
 export default {
+  Image: (url, contain = true) => ({ children }) => (
+    <Image src={url} fill contain={contain}>
+      {children}
+    </Image>
+  ),
   Images: urls => ({ children }) => (
     <Outer>
       <Images>
@@ -52,5 +77,6 @@ export default {
       {children}
     </Outer>
   ),
-  Light: () => ({ children }) => <Light>{children}</Light>
+  Light: ({ children }) => <Light>{children}</Light>,
+  Gradient: ({ children }) => <Gradient>{children}</Gradient>
 }
