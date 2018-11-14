@@ -1,5 +1,7 @@
 import { Head } from 'mdx-deck'
-import { Split } from 'mdx-deck/layouts'
+import { FullScreenCode, Split } from 'mdx-deck/layouts'
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import vsDark from "prism-react-renderer/themes/vsDark"
 
 import Slab from './components/Slab'
 import Layouts from './components/Layouts'
@@ -329,33 +331,136 @@ We can get all these for dynamic too
 # Host your own?
 
 * Simple 🤷‍♂️
-* Portable 🤗
+* Portable 🙂
 * Can't really fail ❌
 * Scalable 😬
 * Efficient 😬
 
 ---
 
-# "Serverless"
-
-* Simple 🤷‍♂️
-* Portable 🤗
-* Can't really fail 🤗
-* Scalable 🤗
-* Efficient ❌
+# Serverless?
 
 ---
 
-```notes
-- Static is super easy
-- Cache + invalidate
-- Static + Serverless is the "cool thing" (fire it's the hot thing)
-- Lambdas no bueno for frontend apps critical path. Good for APIs
+```js
+exports.myHandler = async function(event, context) {
+   // Called once per request
+}
 ```
 
 ---
 
-# We want the benefits of serverless but on a platform fast enough to serve everything
+export default Layouts.Image(
+  require('file-loader!./assets/fire-its-hot.png')
+, false)
+
+---
+
+export default Layouts.Light
+
+#### Netlify Functions
+
+![](./assets/netlify-functions.png)
+
+<figcaption>
+  https://www.netlify.com/docs/functions/
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+#### Now 2.0
+
+![](./assets/now-1.png)
+
+<figcaption>
+  https://zeit.co/blog/now-2
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+#### Now 2.0
+
+![](./assets/now-2.png)
+
+<figcaption>
+  https://zeit.co/blog/now-2
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+#### Now 2.0
+
+![](./assets/now-3.png)
+
+<figcaption>
+  https://zeit.co/blog/now-2
+</figcaption>
+
+---
+
+# Problems in 🏝
+
+---
+
+> *[Lambda]* isn’t running your code in any environment more lightweight than running Node on your own machines.
+> 
+> What it does do is auto-scale those processes (somewhat clumsily). **That auto-scaling creates cold-starts**.
+
+<figcaption>
+  https://blog.cloudflare.com/cloud-computing-without-containers/
+</figcaption>
+
+---
+
+> Cold starts happen **once** for<br/>each **concurrent execution** of your function.
+
+<figcaption>
+  https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+![](./assets/cold-start-serial.png)
+
+<figcaption>
+  https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
+</figcaption>
+
+---
+
+export default Layouts.Light
+
+![](./assets/cold-start-parallel.png)
+
+<figcaption>
+  https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
+</figcaption>
+
+---
+
+# Serverless
+
+* Simple 🤷‍♂️
+* Portable 🤗
+* Can't really fail 🤗
+* Scalable 😬
+* Efficient ❌
+
+---
+
+export default Layouts.Image(
+  require('file-loader!./assets/galaxy-brain-5.png')
+, false)
+
+## SERVERLESS<br/>SPECIFICALLY FOR FRONTEND
 
 ---
 
@@ -377,16 +482,54 @@ There's nothing worse than somebody coming up to talk about something that sound
 
 ---
 
-### File Format
+## Container format
 
-```
-my-app.b1c53da6.fab (zip file)
+* Originally product-specific `linc-vm`
+* Full node environment isolation using `vm2`
+* Possible to escape, also a little slow
+
+---
+
+## 💪 V8:Isolate
+
+* JS-specific (not Node) isolation
+
+---
+
+## FAB specification
+
+* Single file (.fab)
+* Immutable (untouched once built)
+* Fingerprinted (production settings included)
+* Injectable (settings overridable per-request)
+* Portable (hosted anywhere)
+
+---
+
+export default Layouts.Code
+
+<CodeSurfer
+  title="FAB file format"
+  code={`my-app.b1c53da6.fab
   ├── settings.json
   ├── runtime.js
   └── _assets
         ├── js
         │   ├── main.7fcd9566.js
-        │   └── main.7fcd9566.js.map
+        │   └── ...
         └── media
-            └── logo_default.e925f90a.svg
-```
+            ├── logo_default.e925f90a.svg
+            └── ...`}
+  lang="text"
+  showNumbers={false}
+  theme={vsDark}
+  steps={[
+    {},
+    { lines: [1], notes: "Zipped using @fab/deterministic-zip" },
+    { lines: [2], notes: "Production environment variables" },
+    { lines: [3], notes: "V8-isolate JS bundle of entire app" },
+    { range: [4, 10], notes: "All static assets for release included" },
+  ]}
+/>
+
+---

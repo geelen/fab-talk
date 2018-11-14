@@ -13,6 +13,8 @@ const common = `
 
 const Image = styled.div`
   ${common};
+  justify-content: flex-end;
+  padding-bottom: 4rem;
   background: url('${props => props.src}') no-repeat 50% 50%;
   height: 100vh;
   background-size: ${props => (props.contain ? 'contain' : 'cover')};
@@ -47,8 +49,13 @@ const Light = styled.div`
   background: radial-gradient(white, #c5dff2);
 
   img {
-    max-height: 80vh;
-    max-width: 90vw;
+    max-height: 70vh;
+    max-width: 80vw;
+    &:first-child {
+      max-height: 80vh;
+      max-width: 90vw;
+    }
+    
     box-shadow: 0 0 0 1px #eee, 0 0 0 7px white, 0 0 0 8px #ddd,
       0 4px 24px 8px rgba(0, 0, 0, 0.3);
   }
@@ -60,6 +67,15 @@ const Gradient = styled.div`
 
   img {
     height: 80vh;
+  }
+`
+
+const CodeSlide = styled.div`
+  ${common};
+  
+  h1 {
+    font-size: 2em;
+    margin: 4rem 0 0;
   }
 `
 
@@ -78,5 +94,6 @@ export default {
     </Outer>
   ),
   Light: ({ children }) => <Light>{children}</Light>,
-  Gradient: ({ children }) => <Gradient>{children}</Gradient>
+  Gradient: ({ children }) => <Gradient>{children}</Gradient>,
+  Code: ({ children }) => <CodeSlide>{children}</CodeSlide>
 }

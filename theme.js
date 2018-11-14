@@ -1,6 +1,7 @@
 import React from 'react'
 import theme from 'mdx-deck/themes'
 import styled, { css, createGlobalStyle } from 'styled-components'
+import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -42,9 +43,13 @@ export default {
   font: 'Acumin Variable Pro, ObviouslyVariable, Gibson, Avenir Next, Segoe UI, sans-serif',
   // custom colors
   colors: {
+    ...theme.colors, // include existing theme colors
     text: 'rgb(234, 234, 236)',
     background: 'rgb(41, 43, 56)',
     link: '#0ff',
+  },
+  prism: {
+    style: okaidia
   },
   Provider: ({children}) => (
     <React.Fragment>
@@ -63,7 +68,7 @@ export default {
     margin: 0;
     em {
       font-style: inherit;    
-      font-variation-settings: "wdth" 90, "wght" 700, "slnt" 10;
+      font-variation-settings: "wdth" 90, "wght" 700, "slnt" 9;
     }
   `,
   h3: css`
@@ -72,9 +77,32 @@ export default {
     letter-spacing: 0.1em;
     color: #34e4e4;
   `,
+  h4: css`
+    margin: 0 0 0.5em 0;
+    font-size: 1.5em;
+    color: rgb(234, 234, 236);
+    mix-blend-mode: difference;
+    opacity: 0.7;
+    letter-spacing: unset;
+    font-variation-settings: "wdth" 90, "wght" 700, "slnt" 0;
+  `,
   p: css`
     margin: 0;
     font-variation-settings: "wdth" 80, "wght" 300, "slnt" 0;
+  `,
+  blockquote: css`
+    font-size: 1.1em;
+    border-left: 8px solid;
+    padding: 0 1em;
+    margin: 0;
+    font-variation-settings: "wdth" 80, "wght" 200, "slnt" 9;
+    em {
+      font-style: inherit;    
+      font-variation-settings: "wdth" 80, "wght" 200, "slnt" 9;
+    }
+    strong {
+      font-variation-settings: "wdth" 80, "wght" 600, "slnt" 9;
+    }
   `
 }
   // Customize your presentation theme here.
