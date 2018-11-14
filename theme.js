@@ -10,12 +10,6 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
   
-  @font-face {
-    src: url('${require('file-loader!./fonts/ObviouslyVariable.woff2')}');
-    font-family: 'ObviouslyVariable';
-    font-style: normal;
-  }
-  
   body::after {
     content: '@glenmaddern';
     position: fixed;
@@ -40,7 +34,7 @@ export default {
   // extends the default theme
   ...theme,
   // add a custom font
-  font: 'Acumin Variable Pro, ObviouslyVariable, Gibson, Avenir Next, Segoe UI, sans-serif',
+  font: 'Acumin Variable Pro, Gibson, Avenir Next, Segoe UI, sans-serif',
   // custom colors
   colors: {
     ...theme.colors, // include existing theme colors
