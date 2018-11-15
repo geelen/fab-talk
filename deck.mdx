@@ -21,17 +21,20 @@ export { default as theme } from './theme'
   3.2 0.6 60 700 RUNTIME
 `}/>
 
+```notes
+Notes are working!
+```
+
 ---
 
 # Disclaimer
 
 ---
 
-This is my first talk for over a year
-
+This talk is... a "draft".
 
 ```notes
-I super over-prepare talks usually so this is new for me
+That is to say, potentially a rambling mess.
 ```
 
 ---
@@ -61,11 +64,19 @@ export default Layouts.Images([
 
 I'm not impartial
 
+```notes
+This is a talk about a shift I think is happening in the React ecosystem and the frontend ecosystem more generally, but I'm not just observing this.
+```
+
 ---
 
 export default Layouts.Gradient
 
-![](./assets/logo.svg)
+![](./assets/Logo.svg)
+
+```notes
+I'm also working on a product in this space called Linc. And so while I'm not talking to you about that product, I... kinda started that product and this project for the same reasons. So I'm kinda trying to convince you all that this is what happening and then maybe we can chat afterwards about this Linc thing.
+```
 
 ---
 
@@ -75,12 +86,20 @@ export default Layouts.Gradient
   3.2 0.6 60 700 RUNTIME
 `}/>
 
+```notes
+Anyway, let's begin
+```
+
 ---
 
 <Slab lines={`
   3 0.8 100 700 BUT
   4 0.8 50 700 GLEN
 `}/>
+
+```notes
+But first!
+```
 
 ---
 
@@ -94,7 +113,7 @@ export default Layouts.Light
 
 ---
 
-## RUNTIME
+## "RUNTIME"
 
 Includes delivery
 
@@ -171,7 +190,7 @@ export default Layouts.Image(
 
 ---
 
-# NO DOWNSIDE
+# "NO DOWNSIDE"
 
 ---
 
@@ -330,7 +349,7 @@ We can get all these for dynamic too
 
 # Host your own?
 
-* Simple 🤷‍♂️
+* Simple 🤷‍
 * Portable 🙂
 * Can't really fail ❌
 * Scalable 😬
@@ -448,7 +467,7 @@ export default Layouts.Light
 
 # Serverless
 
-* Simple 🤷‍♂️
+* Simple 🤷‍
 * Portable 🤗
 * Can't really fail 🤗
 * Scalable 😬
@@ -482,17 +501,77 @@ There's nothing worse than somebody coming up to talk about something that sound
 
 ---
 
-## Container format
+## Origins
 
-* Originally product-specific `linc-vm`
+* Started as product-specific `linc-vm`
 * Full node environment isolation using `vm2`
-* Possible to escape, also a little slow
+* Technically possible to escape
+* Good enough for prototyping
 
 ---
 
 ## 💪 V8:Isolate
 
-* JS-specific (not Node) isolation
+* JS-only (not Node) isolation<br/>(How Chrome isolates tabs from each other)
+* Extra-blazingly fast, even for JS
+* Up to you to provide any global variables
+* Linc's implementation using `isolated-vm`
+
+<figcaption>
+  https://github.com/laverdet/isolated-vm
+</figcaption>
+
+```notes
+We're using an in-memory version of FS and providing a fetch-compatible network layer.
+```
+
+---
+
+> A basic Node Lambda running no real code consumes 35 MB of memory. When you can share the runtime between all of the Isolates as we do, that drops to **around 3 MB**.
+
+<figcaption>
+  https://blog.cloudflare.com/cloud-computing-without-containers
+</figcaption>
+
+---
+
+> Fundamentally V8 was **designed to be multi-tenant**... Node and similar runtimes were not, and it shows in the multi-tenant systems which are built atop it.
+
+<figcaption>
+  https://blog.cloudflare.com/cloud-computing-without-containers
+</figcaption>
+
+---
+
+> Isolates start in 5 milliseconds...
+> 
+> You are actually running **closer to the metal** than any other form of cloud computing I’m aware of.
+
+<figcaption>
+  https://blog.cloudflare.com/cloud-computing-without-containers
+</figcaption>
+
+---
+
+## Downsides
+
+* V8:Isolate itself is too low-level
+* Most server-side packages don't work out of the box
+* Development workflow isn't great<br/>(Remember life before source maps?)
+
+---
+
+## FABs
+
+A collection of tools for bundling frontend projects for `V8:Isolate` VMs.
+
+---
+
+## FABs
+
+A collection of tools for bundling frontend projects for `V8:Isolate` VMs.
+
+Also a big reason to use Linc.
 
 ---
 
@@ -502,7 +581,7 @@ There's nothing worse than somebody coming up to talk about something that sound
 * Immutable (untouched once built)
 * Fingerprinted (production settings included)
 * Injectable (settings overridable per-request)
-* Portable (hosted anywhere)
+* Portable (simple wrappers for any host)
 
 ---
 
@@ -533,3 +612,28 @@ export default Layouts.Code
 />
 
 ---
+
+## CLI Packages*
+
+```
+@fab/static - compile a FAB from a static dir
+@fab/serve - host a FAB in a NodeJS express server
+@fab/next - compile a NextJS project
+@fab/compile - advanced compiler for SSR FABs
+@fab/cf-workers - wrap FAB in a Cloudflare Worker
+@fab/docker - wrap FAB in a Docker image 
+```
+
+<figcaption>* extremely work-in-progress omfg</figcaption>
+
+---
+
+## Follow along
+
+* Me on twitter, `@glenmaddern`
+* FAB on GitHub `https://github.com/fab-spec/fab`
+* Sign up for Linc `http://linc.sh`
+
+---
+
+# Thanks!
