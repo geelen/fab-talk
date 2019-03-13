@@ -56,7 +56,7 @@ const Light = styled.div`
       max-height: 80vh;
       max-width: 90vw;
     }
-    
+
     box-shadow: 0 0 0 1px #eee, 0 0 0 7px white, 0 0 0 8px #ddd,
       0 4px 24px 8px rgba(0, 0, 0, 0.3);
   }
@@ -73,7 +73,7 @@ const Gradient = styled.div`
 
 const CodeSlide = styled.div`
   ${common};
-  
+
   h1 {
     font-size: 2em;
     margin: 4rem 0 0;
@@ -82,14 +82,18 @@ const CodeSlide = styled.div`
 
 export default {
   Image: (url, contain = true) => ({ children }) => (
-    <Image src={url} fill contain={contain}>
-      {children}
-    </Image>
+    <Light>
+      <Image src={url} fill contain={contain}>
+        {children}
+      </Image>
+    </Light>
   ),
   Images: urls => ({ children }) => (
     <Outer>
       <Images>
-        {urls.map((url, i) => <Image key={i} src={url} alt="" />)}
+        {urls.map((url, i) => (
+          <Image key={i} src={url} alt="" />
+        ))}
       </Images>
       {children}
     </Outer>
