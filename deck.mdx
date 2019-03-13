@@ -16,7 +16,9 @@ export { default as theme } from './theme'
 </Head>
 
 ## Frontend Application Bundles
-#### MelbJS March 2019
+### MelbJS March 2019
+
+_@glenmaddern_
 
 ```notes
 Notes are working!
@@ -29,7 +31,7 @@ export default Layouts.Light
 ![](./assets/fab-logo.png)
 
 <Slab lines={`
-  0.6 1 120 200 THE DOCKER OF FRONTEND
+  0.6 1 120 200 "THE DOCKER OF FRONTEND"
 `}/>
 
 ```notes
@@ -92,11 +94,6 @@ export default Layouts.Light
 
 ## Docker was more _restrictive_
 
-
----
-
-## Docker was <br/>_open source_ &<br/>_platform agnostic_
-
 ---
 
 ## Docker was _smaller_
@@ -104,6 +101,11 @@ export default Layouts.Light
 Virtual Machine: ~GBs
 
 Docker Image: ~100s MBs
+
+
+---
+
+## Docker was <br/>_open source_ &<br/>_platform agnostic_
 
 ---
 
@@ -231,16 +233,6 @@ exports.myHandler = async function(event, context) {
 
 export default Layouts.Light
 
-![](./assets/cold-start-parallel.png)
-
-<figcaption>
-  https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
-</figcaption>
-
----
-
-export default Layouts.Light
-
 ##### Lambda performance (200 requests, 50 at a time)
 
 ![](./assets/lambda-perf-1.png)
@@ -313,6 +305,14 @@ export async function render(request, settings) {
 
 ---
 
+### FAB Fact #1
+
+## Production settings are baked in
+
+(so the FAB is portable)
+
+---
+
 ```js
 export function getProdSettings() { /*...*/ }
 
@@ -327,6 +327,14 @@ export async function render(request, settings) {
   return new Response(body, { statusCode, headers })
 }
 ```
+
+---
+
+### FAB Fact #2
+
+## Render function called on every request
+
+(with settings injected)
 
 ---
 
@@ -346,6 +354,14 @@ _assets            (served under /_assets)
 
 ---
 
+### FAB Fact #3
+
+## `/_assets` is a special path
+
+(but you don't have to worry too much about it)
+
+---
+
 ##### NPM Packages
 
 ```text
@@ -360,6 +376,14 @@ Runners:
 @fab/cf-workers - deploy FAB to a Cloudflare Worker
 @fab/lambda-edge - deploy FAB to Lambda@Edge
 ```
+
+---
+
+### FAB Fact #4
+
+## You don't need to know how FABs work
+
+(just use the compiler for your current project)
 
 ---
 
@@ -417,6 +441,7 @@ export default Layouts.Gradient
 ## _Linc roadmap_
 
 * Preview links per commit &nbsp;✅
+* Instant releases on PR merge &nbsp;✅
 * Blue/green deployments
 * Canary deployments
 * A/B testing between FABs
@@ -424,3 +449,13 @@ export default Layouts.Gradient
 * Visual regression testing
 * Parallel acceptance testing
 * Smoke testing against production backends
+
+---
+
+# Thankyou!
+
+https://fab.dev
+
+https://github.com/fab-spec/fab
+
+@glenmaddern
