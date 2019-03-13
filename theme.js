@@ -95,6 +95,19 @@ export default {
       font-weight: 600;    
       color: #34e4e4;
     }
+  `,
+  a: {
+    color: 'inherit',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+    }
+  },
+  code: {
+    color: '#34e4e4'
+  },
+  ul: css`
+    font-size: inherit;
   `
 }
   // Customize your presentation theme here.
