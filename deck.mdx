@@ -95,7 +95,7 @@ export default Layouts.Light
 
 ---
 
-## Docker was <br/>_open source & platform agnostic_
+## Docker was <br/>_open source_ &<br/>_platform agnostic_
 
 ---
 
@@ -150,6 +150,10 @@ This isn't what all frontend apps need, but a frontend container standard needs
 
 ---
 
+## Static hosting?
+
+---
+
 ## Static hosting
 
 HTTP in/out ❌
@@ -182,7 +186,11 @@ export default Layouts.Light
 
 ---
 
-## Innovation is <br/> _platform-specific_
+## Everything's still <br/> _platform-specific_
+
+---
+
+## Serverless?
 
 ---
 
@@ -213,7 +221,7 @@ exports.myHandler = async function(event, context) {
 
 ---
 
-> Cold starts happen **once** for<br/>each **concurrent execution** of your function.
+> Cold starts happen **once** for each **concurrent execution** of your function.
 
 <figcaption>
   https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
@@ -280,7 +288,7 @@ export default Layouts.Image(
 
 ##### Frontend Application Bundle
 
-```
+```sh
 fab.zip
   ├── server.js   (server entry point)
   └── _assets     (directory of assets for this release)
@@ -340,7 +348,7 @@ _assets            (served under /_assets)
 
 ##### NPM Packages
 
-```
+```text
 Compilers:
 @fab/static - compile a FAB from a static dir
 @fab/nextjs - compile a NextJS v8 project
