@@ -4,12 +4,6 @@ import styled, { css, createGlobalStyle } from 'styled-components'
 import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    src: url('${require('file-loader!./fonts/AcuminVariableConcept.otf.woff2')}');
-    font-family: 'Acumin Variable Pro';
-    font-style: normal;
-  }
-  
   body::after {
     content: '@glenmaddern';
     position: fixed;
@@ -21,12 +15,15 @@ const GlobalStyle = createGlobalStyle`
   }
   
   figcaption {
-    font-variation-settings: "wdth" 70, "wght" 300, "slnt" 0;
     color: white;
     mix-blend-mode: difference;
     font-size: 0.7em;
     margin-top: 1em;
     opacity: 0.7;
+  }
+  
+  span.smallpre ~ pre {
+    font-size: 14px;
   }
 `
 
@@ -34,7 +31,7 @@ export default {
   // extends the default theme
   ...theme,
   // add a custom font
-  font: 'Acumin Variable Pro, Gibson, Avenir Next, Segoe UI, sans-serif',
+  font: 'Gibson, Avenir Next, Segoe UI, sans-serif',
   // custom colors
   colors: {
     ...theme.colors, // include existing theme colors
@@ -54,20 +51,18 @@ export default {
   transitionDuration: 0,
   h1: css`
     font-size: 3em;
-    font-variation-settings: "wdth" 90, "wght" 700, "slnt" 0;
   `,
   h2: css`
     font-size: 2.5em;
-    font-variation-settings: "wdth" 90, "wght" 700, "slnt" 0;
     margin: 0;
+    letter-spacing: 0.02em;
     em {
-      font-style: inherit;    
-      font-variation-settings: "wdth" 90, "wght" 700, "slnt" 9;
+      font-style: italic;    
+      color: #34e4e4;
     }
   `,
   h3: css`
     text-transform: uppercase;
-    font-variation-settings: "wdth" 100, "wght" 700, "slnt" 0;
     letter-spacing: 0.1em;
     color: #34e4e4;
   `,
@@ -78,7 +73,10 @@ export default {
     mix-blend-mode: difference;
     opacity: 0.7;
     letter-spacing: unset;
-    font-variation-settings: "wdth" 90, "wght" 700, "slnt" 0;
+  `,
+  h5: css`
+    color: inherit;
+    margin: 0 0 1.5rem;
   `,
   p: css`
     margin: 0;
@@ -89,13 +87,13 @@ export default {
     border-left: 8px solid;
     padding: 0 1em;
     margin: 0;
-    font-variation-settings: "wdth" 80, "wght" 200, "slnt" 9;
+    font-weight: 600;
     em {
-      font-style: inherit;    
-      font-variation-settings: "wdth" 80, "wght" 200, "slnt" 9;
+      font-style: italic;    
     }
     strong {
-      font-variation-settings: "wdth" 80, "wght" 600, "slnt" 9;
+      font-weight: 600;    
+      color: #34e4e4;
     }
   `
 }

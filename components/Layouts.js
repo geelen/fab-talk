@@ -47,6 +47,7 @@ const Outer = styled.div`
 const Light = styled.div`
   ${common};
   background: radial-gradient(white, #c5dff2);
+  color: #003f80;
 
   img {
     max-height: 70vh;

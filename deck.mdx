@@ -12,14 +12,11 @@ import Tweet from './components/Tweet'
 export { default as theme } from './theme'
 
 <Head>
-  <title>Why Frontend Apps Need a Standard Runtime</title>
+  <title>Frontend Application Bundles: The Docker of Frontend</title>
 </Head>
 
-<Slab lines={`
-  1 1 70 100 WHY FRONTEND APPS NEED A
-  3.2 0.9 50 700 STANDARD
-  3.2 0.6 60 700 RUNTIME
-`}/>
+## Frontend Application Bundles
+#### MelbJS March 2019
 
 ```notes
 Notes are working!
@@ -27,339 +24,178 @@ Notes are working!
 
 ---
 
-# Disclaimer
-
----
-
-This talk is... a "draft".
-
-```notes
-That is to say, potentially a rambling mess.
-```
-
----
-
-# Disclaimer 2
-
----
-
-I work from home, I don't see humans very often
-
----
-
-export default Layouts.Images([
-  require('file-loader!./assets/prince.jpg'),
-  require('file-loader!./assets/whitney.jpg'),
-])
-
-<Slab lines={`
-  2 1 50 700 MY WORKMATES
-`}/>
-
----
-
-# Disclaimer 3
-
----
-
-I'm not impartial
-
-```notes
-This is a talk about a shift I think is happening in the React ecosystem and the frontend ecosystem more generally, but I'm not just observing this.
-```
-
----
-
-export default Layouts.Gradient
-
-![](./assets/Logo.svg)
-
-```notes
-I'm also working on a product in this space called Linc. And so while I'm not talking to you about that product, I... kinda started that product and this project for the same reasons. So I'm kinda trying to convince you all that this is what happening and then maybe we can chat afterwards about this Linc thing.
-```
-
----
-
-<Slab lines={`
-  1 1 70 100 WHY FRONTEND APPS NEED A
-  3.2 0.9 50 700 STANDARD
-  3.2 0.6 60 700 RUNTIME
-`}/>
-
-```notes
-Anyway, let's begin
-```
-
----
-
-<Slab lines={`
-  3 0.8 100 700 BUT
-  4 0.8 50 700 GLEN
-`}/>
-
-```notes
-But first!
-```
-
----
-
-![](./assets/browsers.png)
-
----
-
 export default Layouts.Light
 
-![](./assets/waterfall.png)
-
----
-
-## "RUNTIME"
-
-Includes delivery
-
-```notes
-This is somewhat unique to web apps.
-It's not always that important, but it usually is.
-There are other platforms where delivery is important, but not in the same way.
-```
-
----
+![](https://user-images.githubusercontent.com/23264/53997145-306ba300-418f-11e9-91d0-b44e6df85d4c.png)
 
 <Slab lines={`
-  1 1 70 100 WHY FRONTEND APPS NEED A
-  3.2 0.9 50 700 STANDARD
-  3.2 0.6 60 700 RUNTIME
+  0.6 1 120 200 THE DOCKER OF FRONTEND
 `}/>
 
 ```notes
-Ok so now we're finally ready to start this talk 
+Hands up if:
+- You vaguely know what docker is
+- You use it day-to-day
+- You really understand it
+
+Now, for those people with their hands still up, you lnow docker a lot better than me. I'm definitely no expert, so if I get some details wrong I apologise, the analogy isn't perfect but I think it works well enough.
 ```
 
 ---
 
 ### Part One
-# Beyond Static Rendering
+# What Docker Changed
 
 ---
 
 export default Layouts.Light
 
-![](./assets/waterfall.png)
+![](./assets/malcolm%20mclean.jpg)
+
+<figcaption>https://en.wikipedia.org/wiki/Malcom_McLean</figcaption>
 
 ```notes
-Now, look at this graph. I'm not prepared enough to actually run this section as a demo so I'm going to point at this thing and try to get you to imagine what's going on.
 
-Let's think about what this graph means. We can see we have an initial period of waiting, then the HTML content is on the screen, then we go off and load the JS, and then we render it locally.
-
-In development, that works great. We have a powerful computer and an instantaneous network. We also have live-reload, so we don't have to spend much time here.
-
-But in production, this process is one of the most important things to optimise.
 ```
 
 ---
 
 export default Layouts.Light
 
-![](./assets/waterfall-1.png)
+![](./assets/container.png)
 
 ```notes
-By default, using something like React that wants to be 100% client-rendered, you usually send down a blank HTML page. Then the JS boots and the app works.
 
-Who here deploys an app like this? Most of the time you're writing a product that requires sign-in, where people will be spending all day there, that sort of thing.
-
-There's nothing wrong with this approach, but it doesn't suit all use cases.
 ```
 
 ---
 
-export default Layouts.Image(
-  require('file-loader!./assets/react foo talk/react foo talk.001.png')
-)
+## Virtual Machines
 
 ---
 
-export default Layouts.Image(
-  require('file-loader!./assets/react foo talk/react foo talk.002.png')
-)
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/react foo talk/react foo talk.003.png')
-)
-
----
-
-# "NO DOWNSIDE"
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/galaxy-brain-1.png')
-, false)
-
-# Serve inital HTML
-
----
-
-## Gatsby, NextJS, etc.
+## Innovation was <br/> _platform-specific_
 
 ---
 
 export default Layouts.Light
 
-![](./assets/waterfall-2.png)
+![](./assets/vms-vs-docker.png)
+
+<figcaption>https://www.docker.com/resources/what-container</figcaption>
+
+```notes
+
+```
 
 ---
 
-export default Layouts.Light
+## Docker was more _restrictive_
 
-![](./assets/tti.gif)
-
-<figcaption>
-  https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4
-</figcaption>
 
 ---
 
-export default Layouts.Light
-
-![](./assets/javascript-processing-times.png)
-
-<figcaption>
-  https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4
-</figcaption>
+## Docker was <br/>_open source & platform agnostic_
 
 ---
 
-export default Layouts.Image(
-  require('file-loader!./assets/galaxy-brain-2.png')
-, false)
+## Docker was _smaller_
 
-# Bundle Splitting
+Virtual Machine: ~GBs
 
----
-
-# Current best practice
+Docker Image: ~100s MBs
 
 ---
 
-# But we can do better
+## Innovation _exploded_
 
----
+Blue/green deployments
 
-export default Layouts.Light
+Autoscaling
 
-![](./assets/portals-1.jpg)
-
-<figcaption>
-  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
-</figcaption>
-
----
-
-export default Layouts.Light
-
-![](./assets/portals-2.jpg)
-
-<figcaption>
-  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
-</figcaption>
-
----
-
-export default Layouts.Light
-
-![](./assets/portals-3.jpg)
-
-<figcaption>
-  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
-</figcaption>
-
----
-
-export default Layouts.Light
-
-![](./assets/portals-4.jpg)
-
-<figcaption>
-  https://speakerdeck.com/siddharthkp/a-portal-to-the-future
-</figcaption>
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/galaxy-brain-3.png')
-, false)
-
-## Don't Rerender<br/>Things That Don't Change
-
----
-
-## The Future of React
-
----
-
-<Video videoId="eF7Ca06u58w"/>
-
----
-
-export default Layouts.Light
-
-<Tweet id="1057420260242931713" options={{conversation: 'none' }}/>
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/galaxy-brain-4.png')
-, false)
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/galaxy-brain-4.png')
-, false)
-
-## Whatever the hell that just was
-
----
-
-## React's Future is Server-Side
+Portability
 
 ---
 
 ### Part Two
-# Hosting Dynamic Frontend Apps
+# Why Frontend Needs Something New
 
 ---
 
-# Hosting Static Apps
+export default Layouts.Light
 
-* Simple
-* Portable
-* Can't really fail<br/>(You can still ship broken code tho)
-* Scalable
-* Efficient
+![](./assets/kubernetes.png)
 
 ```notes
-We can get all these for dynamic too
+Using a sledgehammer to crack a nut
 ```
 
 ---
 
-# Host your own?
-
-* Simple 🤷‍
-* Portable 🙂
-* Can't really fail ❌
-* Scalable 😬
-* Efficient 😬
+## Frontend is a <br/>_smaller concern_
 
 ---
 
-# Serverless?
+## What Frontend _needs_
+
+HTTP in/out
+
+Low latency
+
+Scalability
+
+```notes
+This isn't what all frontend apps need, but a frontend container standard needs 
+```
 
 ---
+
+## Static hosting
+
+HTTP in/out ❌
+
+Low latency ✅
+
+Scalability ✅
+
+---
+
+## HTTP in/out
+
+HTTP Headers
+
+Redirects
+
+API proxying
+
+---
+
+export default Layouts.Light
+
+![](./assets/netlify-headers.png)
+
+---
+
+export default Layouts.Light
+
+![](./assets/netlify-redirects.png)
+
+---
+
+## Innovation is <br/> _platform-specific_
+
+---
+
+## Serverless
+
+HTTP in/out ✅
+
+Low latency ❌
+
+Scalability ✅
+
+---
+
 
 ```js
 exports.myHandler = async function(event, context) {
@@ -369,67 +205,7 @@ exports.myHandler = async function(event, context) {
 
 ---
 
-export default Layouts.Image(
-  require('file-loader!./assets/fire-its-hot.png')
-, false)
-
----
-
-export default Layouts.Light
-
-#### Netlify Functions
-
-![](./assets/netlify-functions.png)
-
-<figcaption>
-  https://www.netlify.com/docs/functions/
-</figcaption>
-
----
-
-export default Layouts.Light
-
-#### Now 2.0
-
-![](./assets/now-1.png)
-
-<figcaption>
-  https://zeit.co/blog/now-2
-</figcaption>
-
----
-
-export default Layouts.Light
-
-#### Now 2.0
-
-![](./assets/now-2.png)
-
-<figcaption>
-  https://zeit.co/blog/now-2
-</figcaption>
-
----
-
-export default Layouts.Light
-
-#### Now 2.0
-
-![](./assets/now-3.png)
-
-<figcaption>
-  https://zeit.co/blog/now-2
-</figcaption>
-
----
-
-# Problems in 🏝
-
----
-
 > *[Lambda]* isn’t running your code in any environment more lightweight than running Node on your own machines.
-> 
-> What it does do is auto-scale those processes (somewhat clumsily). **That auto-scaling creates cold-starts**.
 
 <figcaption>
   https://blog.cloudflare.com/cloud-computing-without-containers/
@@ -447,7 +223,7 @@ export default Layouts.Light
 
 export default Layouts.Light
 
-![](./assets/cold-start-serial.png)
+![](./assets/cold-start-parallel.png)
 
 <figcaption>
   https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
@@ -457,183 +233,37 @@ export default Layouts.Light
 
 export default Layouts.Light
 
-![](./assets/cold-start-parallel.png)
+##### Lambda performance (200 requests, 50 at a time)
+
+![](./assets/lambda-perf-1.png)
 
 <figcaption>
-  https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
+  https://gist.github.com/geelen/ec56ca115b8fafa45d8a70069bb930fd
 </figcaption>
 
 ---
 
-# Serverless
+export default Layouts.Light
 
-* Simple 🤷‍
-* Portable 🤗
-* Can't really fail 🤗
-* Scalable 😬
-* Efficient ❌
+##### Lambda performance (200 requests, 50 at a time)
 
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/galaxy-brain-5.png')
-, false)
-
-## SERVERLESS<br/>SPECIFICALLY FOR FRONTEND
-
----
-
-### Part Three
-# Introducing<br/>Frontend Application Bundles (FABs)
-
----
-
-### Part Three
-# Introducing*<br/>Frontend Application Bundles (FABs)
-
-\* super not ready to use yet, pls don't @ me
-
----
-
-# Disclaimer 4
-
-There's nothing worse than somebody coming up to talk about something that sounds cool that doesn't exist yet.<br/>Anyway sorry.
-
----
-
-## Origins
-
-* Started as product-specific `linc-vm`
-* Full node environment isolation using `vm2`
-* Technically possible to escape
-* Good enough for prototyping
-
----
-
-## 💪 V8:Isolate
-
-* JS-only (not Node) isolation<br/>(How Chrome isolates tabs from each other)
-* Extra-blazingly fast, even for JS
-* Up to you to provide any global variables
-* Linc's implementation using `isolated-vm`
+![](./assets/lambda-perf-2.png)
 
 <figcaption>
-  https://github.com/laverdet/isolated-vm
-</figcaption>
-
-```notes
-We're using an in-memory version of FS and providing a fetch-compatible network layer.
-```
-
----
-
-> A basic Node Lambda running no real code consumes 35 MB of memory. When you can share the runtime between all of the Isolates as we do, that drops to **around 3 MB**.
-
-<figcaption>
-  https://blog.cloudflare.com/cloud-computing-without-containers
+  https://gist.github.com/geelen/ec56ca115b8fafa45d8a70069bb930fd
 </figcaption>
 
 ---
 
-> Fundamentally V8 was **designed to be multi-tenant**... Node and similar runtimes were not, and it shows in the multi-tenant systems which are built atop it.
+export default Layouts.Light
+
+##### CF Workers performance (200 requests, 50 at a time)
+
+![](./assets/cf-worker-perf-1.png)
 
 <figcaption>
-  https://blog.cloudflare.com/cloud-computing-without-containers
+  https://gist.github.com/geelen/ec56ca115b8fafa45d8a70069bb930fd
 </figcaption>
 
 ---
 
-> Isolates start in 5 milliseconds...
-> 
-> You are actually running **closer to the metal** than any other form of cloud computing I’m aware of.
-
-<figcaption>
-  https://blog.cloudflare.com/cloud-computing-without-containers
-</figcaption>
-
----
-
-## Downsides
-
-* V8:Isolate itself is too low-level
-* Most server-side packages don't work out of the box
-* Development workflow isn't great<br/>(Remember life before source maps?)
-
----
-
-## FABs
-
-A collection of tools for bundling frontend projects for `V8:Isolate` VMs.
-
----
-
-## FABs
-
-A collection of tools for bundling frontend projects for `V8:Isolate` VMs.
-
-Also a big reason to use Linc.
-
----
-
-## FAB specification
-
-* Single file (.fab)
-* Immutable (untouched once built)
-* Fingerprinted (production settings included)
-* Injectable (settings overridable per-request)
-* Portable (simple wrappers for any host)
-
----
-
-export default Layouts.Code
-
-<CodeSurfer
-  title="FAB file format"
-  code={`my-app.b1c53da6.fab
-  ├── settings.json
-  ├── runtime.js
-  └── _assets
-        ├── js
-        │   ├── main.7fcd9566.js
-        │   └── ...
-        └── media
-            ├── logo_default.e925f90a.svg
-            └── ...`}
-  lang="text"
-  showNumbers={false}
-  theme={vsDark}
-  steps={[
-    {},
-    { lines: [1], notes: "Zipped using @fab/deterministic-zip" },
-    { lines: [2], notes: "Production environment variables" },
-    { lines: [3], notes: "V8-isolate JS bundle of entire app" },
-    { range: [4, 10], notes: "All static assets for release included" },
-  ]}
-/>
-
----
-
-## CLI Packages*
-
-```
-@fab/static - compile a FAB from a static dir
-@fab/serve - host a FAB in a NodeJS express server
-@fab/next - compile a NextJS project
-@fab/compile - advanced compiler for SSR FABs
-@fab/cf-workers - wrap FAB in a Cloudflare Worker
-@fab/docker - wrap FAB in a Docker image 
-```
-
-<figcaption>* extremely work-in-progress omfg</figcaption>
-
----
-
-## Follow along
-
-* Me on twitter, `@glenmaddern`
-* FAB on GitHub `https://github.com/fab-spec/fab`
-* Sign up for Linc `http://linc.sh`
-
----
-
-# Thanks!
