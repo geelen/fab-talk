@@ -278,22 +278,60 @@ export default Layouts.Image(
 
 ---
 
-export default Layouts.Light
+##### Frontend Application Bundle
 
-![](./assets/fab-diagram.png)
+```
+fab.zip
+  ├── server.js   (server entry point)
+  └── _assets     (directory of assets for this release)
+```
 
-<figcaption>
-  https://fab.dev
-</figcaption>
+---
+
+##### server.js
+
+```js
+export function getProdSettings() {
+  return {
+    API_URL: "https://api.example.com",
+    CLIENT_ID: "1cd5e6a4871f98616a38abb2eada56868ca5aad2"
+  }
+}
+
+export async function render(request, settings) {
+  return new Response(/* ... */)
+}
+```
 
 ---
 
-## What Frontend _needs_
+```js
+export function getProdSettings() { /*...*/ }
 
-HTTP in/out
-
-Low latency
-
-Scalability
+export async function render(request, settings) {
+  // request: a fetch.Request object
+  // settings: production settings plus overrides
+  
+  const { body, statusCode, headers } = 
+             await myApp.render(request, settings)
+  
+  // return a fetch.Response object with the full data.
+  return new Response(body, { statusCode, headers })
+}
+```
 
 ---
+
+##### _assets
+
+```text
+_assets            (served under /_assets)
+  ├── js
+  │   ├── main.7fcd9566.js
+  │   └── ...      (fingerprinted, immutable)
+  │   ...
+  └── _public
+      ├── favicon.e925f90a.ico
+      └── ...      (auto-fingerprinted, rewrite
+                    rule added for /favicon.ico)
+  ```
