@@ -51,11 +51,11 @@ export default {
   transitionDuration: 0,
   h1: css`
     font-weight: 600;
-    font-size: 3em;
+    font-size: 2.6em;
   `,
   h2: css`
     font-weight: 600;
-    font-size: 2.5em;
+    font-size: 2.3em;
     margin: 0;
     letter-spacing: 0.02em;
     em {
@@ -65,7 +65,7 @@ export default {
   `,
   h3: css`
     font-weight: 600;
-    font-size: 1.6em;
+    font-size: 1.7em;
     margin: 0.25em 0;
     letter-spacing: 0.02em;
     em {
@@ -115,7 +115,10 @@ export default {
     color: '#34e4e4'
   },
   ul: css`
-    font-size: inherit;
+    font-size: 1.2em;
+  `,
+  li: css`
+    margin: 0.2em 0;
   `
 }
   // Customize your presentation theme here.

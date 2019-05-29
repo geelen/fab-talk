@@ -15,7 +15,7 @@ const Image = styled.div`
   ${common};
   justify-content: flex-end;
   padding-bottom: 2rem;
-  background: black url('${props => props.src}') no-repeat 50% 50%;
+  background: ${props => props.black ? 'black' : ''} url('${props => props.src}') no-repeat 50% 50%;
   height: 100vh;
   background-size: ${props => (props.contain ? 'contain' : 'cover')};
   width: ${props => (props.fill ? '100vw' : '50vw')};
@@ -87,9 +87,9 @@ const CodeSlide = styled.div`
 `
 
 export default {
-  Image: (url, contain = true) => ({ children }) => (
+  Image: (url, { contain = true, dark = false} = {}) => ({ children }) => (
     <Light>
-      <Image src={url} fill contain={contain}>
+      <Image src={url} fill contain={contain} dark={dark}>
         {children}
       </Image>
     </Light>

@@ -179,12 +179,25 @@ export default Layouts.Light
 
 ---
 
-### Platform-_specific_ innovation<br/>vs<br/>Platform-_agnostic_ innovation
+### Before standardisation<br/>_vs_<br/>After standardisation
 
 ---
 
-### Part Two
-# Why Frontend Needs Something New
+## _Platform-centric_ innovation
+
+---
+
+## _Problem-centric_ innovation
+
+---
+
+## What about FABs?
+
+---
+
+## Deploying a frontend app in 2019:
+### • Use an existing container format
+### • Go static only
 
 ---
 
@@ -202,41 +215,16 @@ Using a sledgehammer to crack a nut
 
 ---
 
-## What Frontend _needs_
-
-HTTP in/out
-
-Low latency
-
-Scalability
-
-```notes
-This isn't what all frontend apps need, but a frontend container standard needs 
-```
-
----
-
-## Static hosting?
-
----
-
 ## Static hosting
 
-HTTP in/out ❌
-
-Low latency ✅
-
-Scalability ✅
-
 ---
 
-## HTTP in/out
+## "Static" hosting
 
-HTTP Headers
-
-Redirects
-
-API proxying
+* Static assets
+* HTTP Headers
+* Redirects
+* API proxying
 
 ---
 
@@ -252,94 +240,10 @@ export default Layouts.Light
 
 ---
 
-## Everything's still <br/> _platform-specific_
+## The future _isn't static_
 
 ---
 
-## Serverless?
-
----
-
-## Serverless
-
-HTTP in/out ✅
-
-Low latency ❌
-
-Scalability ✅
-
----
-
-
-```js
-exports.myHandler = async function(event, context) {
-   // Called once per request
-}
-```
-
----
-
-> *[Lambda]* isn’t running your code in any environment more lightweight than running Node on your own machines.
-
-<figcaption>
-  https://blog.cloudflare.com/cloud-computing-without-containers/
-</figcaption>
-
----
-
-> Cold starts happen **once** for each **concurrent execution** of your function.
-
-<figcaption>
-  https://hackernoon.com/im-afraid-you-re-thinking-about-aws-lambda-cold-starts-all-wrong-7d907f278a4f
-</figcaption>
-
----
-
-export default Layouts.Light
-
-##### Lambda performance (200 requests, 50 at a time)
-
-![](./assets/lambda-perf-1.png)
-
-<figcaption>
-  https://gist.github.com/geelen/ec56ca115b8fafa45d8a70069bb930fd
-</figcaption>
-
----
-
-export default Layouts.Light
-
-##### Lambda performance (200 requests, 50 at a time)
-
-![](./assets/lambda-perf-2.png)
-
-<figcaption>
-  https://gist.github.com/geelen/ec56ca115b8fafa45d8a70069bb930fd
-</figcaption>
-
----
-
-export default Layouts.Light
-
-##### CF Workers performance (200 requests, 50 at a time)
-
-![](./assets/cf-worker-perf-1.png)
-
-<figcaption>
-  https://gist.github.com/geelen/ec56ca115b8fafa45d8a70069bb930fd
-</figcaption>
-
----
-
-## Everything's still <br/> _platform-specific_<br/>& nothing's good enough yet
-
----
-
-## We need something<br/>_beyond platforms_
-
----
-
-### Part Three
 # Frontend Application Bundles
 
 ---
@@ -370,90 +274,6 @@ export default Layouts.Image(
 
 ---
 
-##### Frontend Application Bundle
-
-```sh
-fab.zip
-  ├── server.js   (server entry point)
-  └── _assets     (directory of assets for this release)
-```
-
----
-
-##### server.js
-
-```js
-export function getProdSettings() {
-  return {
-    API_URL: "https://api.example.com",
-    CLIENT_ID: "1cd5e6a4871f98616a38abb2eada56868ca5aad2"
-  }
-}
-
-export async function render(request, settings) {
-  return new Response(/* ... */)
-}
-```
-
----
-
-### FAB Fact #1
-
-## Production settings are baked in
-
-(so the FAB is portable)
-
----
-
-```js
-export function getProdSettings() { /*...*/ }
-
-export async function render(request, settings) {
-  // request: a fetch.Request object
-  // settings: production settings plus overrides
-  
-  const { body, statusCode, headers } = 
-             await myApp.render(request, settings)
-  
-  // return a fetch.Response object with the full data.
-  return new Response(body, { statusCode, headers })
-}
-```
-
----
-
-### FAB Fact #2
-
-## Render function called on every request
-
-(with settings injected)
-
----
-
-##### _assets
-
-```text
-_assets            (served under /_assets)
-  ├── js
-  │   ├── main.7fcd9566.js
-  │   └── ...      (fingerprinted, immutable)
-  │   ...
-  └── _public
-      ├── favicon.e925f90a.ico
-      └── ...      (auto-fingerprinted, rewrite
-                    rule added for /favicon.ico)
-  ```
-
----
-
-### FAB Fact #3
-
-## `/_assets` is a special path
-
-(but you don't have to worry too much about it)
-
----
-
 ##### NPM Packages
 
 ```text
@@ -471,21 +291,7 @@ Runners:
 
 ---
 
-### FAB Fact #4
-
-## You don't need to know how FABs work
-
-(just use the compiler for your current project)
-
----
-
-### Part Four
 # Demo
-
----
-
-### Part Five
-# Where next?
 
 ---
 
@@ -516,9 +322,6 @@ https://github.com/fab-spec/fab
 
 ---
 
-## Frontend needs to <br/>_move faster_
-
----
 
 export default Layouts.Gradient
 
@@ -527,10 +330,6 @@ export default Layouts.Gradient
 ```notes
 
 ```
-
----
-
-## _Innovation_
 
 ---
 

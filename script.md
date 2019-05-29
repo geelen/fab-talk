@@ -56,5 +56,24 @@ This is a tiny throwaway quote from the Wikipedia page on Containerisation. The 
 •
 And that’s really what Docker did. It didn’t really do anything vastly better than virtual machines, it just packaged up a bunch of existing technologies into a good solution that was open & platform agnostic. And it’s actually that second part that’s most relevant to frontend apps and FABs.
 •
-Because the really interesting thing isn’t really the containers themselves, it’s what they do to the industry.
+Because the really interesting thing isn’t really the containers themselves, it’s what they do to the wider industry.
 •
+When there’s no standard, each company tries to build the platform with the most features. Before Docker that was things like AWS, Heroku, VMWare, all doing the coolest stuff imaginable with virtual machines as long as you sign up to their platform forever.
+•
+When there is a standard, the innovation becomes much more granular. Suddenly, if you see a problem you can solve it, since everyone’s solutions are compatible with each other. You don’t need to be a company the size of Amazon to compete, you can just fix a tiny piece of the puzzle, and everyone benefits
+
+The analogy with shipping containers is that before standardisation, the only people who could deliver that kind of solution was a company that did everything from trucks, trains & boats, a whole door-to-door service. There’s no incentive for them to make any of their pieces better because nobody 
+
+_This is dragging on_
+
+•
+
+Ok, so that’s enough history, I’m actually almost out of time and I haven’t even started talking about my own stuff! What about these FAB things?
+
+•
+
+Well, as you might be able to ascertain, FAB is kinda like the Docker of Frontend, but I want to talk about two aspects of what that means. The first is why we need a format like this at all.
+
+•
+
+Basically, if you’re working on a frontend app, which I basically define as anything from a static website to a full client-rendered React app, you have to potential “standards” to choose from, 
