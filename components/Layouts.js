@@ -14,8 +14,8 @@ const common = `
 const Image = styled.div`
   ${common};
   justify-content: flex-end;
-  padding-bottom: 4rem;
-  background: url('${props => props.src}') no-repeat 50% 50%;
+  padding-bottom: 2rem;
+  background: black url('${props => props.src}') no-repeat 50% 50%;
   height: 100vh;
   background-size: ${props => (props.contain ? 'contain' : 'cover')};
   width: ${props => (props.fill ? '100vw' : '50vw')};
@@ -23,6 +23,12 @@ const Image = styled.div`
   > * {
     opacity: 0.9;
     text-shadow: 0 2px 2px #000;
+  }
+  
+  h2 {
+    color: white;
+    font-family: Impact;
+    font-size: 12vmin;
   }
 `
 

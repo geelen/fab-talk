@@ -50,9 +50,11 @@ export default {
   ),
   transitionDuration: 0,
   h1: css`
+    font-weight: 600;
     font-size: 3em;
   `,
   h2: css`
+    font-weight: 600;
     font-size: 2.5em;
     margin: 0;
     letter-spacing: 0.02em;
@@ -62,9 +64,14 @@ export default {
     }
   `,
   h3: css`
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #34e4e4;
+    font-weight: 600;
+    font-size: 1.6em;
+    margin: 0.25em 0;
+    letter-spacing: 0.02em;
+    em {
+      font-style: italic;    
+      color: #34e4e4;
+    }
   `,
   h4: css`
     margin: 0 0 0.5em 0;
@@ -90,6 +97,7 @@ export default {
     font-weight: 600;
     em {
       font-style: italic;    
+      color: #34e4e4;      
     }
     strong {
       font-weight: 600;    
