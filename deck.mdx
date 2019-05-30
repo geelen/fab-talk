@@ -21,13 +21,19 @@ export { default as theme } from './theme'
 _@glenmaddern_
 
 ```notes
-Hi everyone, let’s get started!
+
 ```
 
 ---
 
 # 👋
 ## @glenmaddern
+
+```notes
+Only got 10 minutes.
+
+Thank the organisers anyway.
+```
 
 ---
 
@@ -36,7 +42,9 @@ export default Layouts.Gradient
 ![](./assets/Logo.svg)
 
 ```notes
+I’m working on a product called Linc
 
+I'm here all weekend and some of next week
 ```
 
 ---
@@ -48,12 +56,13 @@ export default Layouts.Light
 #### <br/>The Docker of Frontend
 
 ```notes
-Hands up if:
-- You vaguely know what docker is
-- You use it day-to-day
-- You really understand it
+I'm not an expert
 
-Now, for those people with their hands still up, you lnow docker a lot better than me. I'm definitely no expert, so if I get some details wrong I apologise, the analogy isn't perfect but I think it works well enough.
+But it doesn't matter, FABs & Docker are similar in terms of intent, in terms of what they _enable_
+
+If you don't know Docker too much don't worry either
+
+I’ve also only got 10 minutes, focusing on WHY, talk to me later
 ```
 
 ---
@@ -65,7 +74,7 @@ export default Layouts.Light
 <figcaption>https://en.wikipedia.org/wiki/Malcom_McLean</figcaption>
 
 ```notes
-
+If someone tries to explain Docker, they usually start with the story of Containerization.
 ```
 
 ---
@@ -75,7 +84,13 @@ export default Layouts.Light
 ![](./assets/container.png)
 
 ```notes
+Basically, the story goes that the most important invention of the 20th century was a box. This box.
 
+Before the box, stuff shipped one-by-one
+
+After, ship 40 feet of cargo at once.
+
+"Revolutionary", the story goes
 ```
 
 ---
@@ -85,7 +100,7 @@ export default Layouts.Light
 ![](./assets/docker.webp)
 
 ```notes
-
+Same story for Docker, logo is a shipping container on a... whale for some reason.
 ```
 
 ---
@@ -95,7 +110,7 @@ export default Layouts.Light
 ![](./assets/docker-apps.png)
 
 ```notes
-
+Now you don't care what software is running, all your infrastructure can just start caring about these containers, and it's a "revoltionary idea"
 ```
 <figcaption>https://www.datadoghq.com/docker-adoption/</figcaption>
 
@@ -119,7 +134,7 @@ export default Layouts.Image(
 
 ### There were _shipping containers_<br/>before the _Intermodal Container_
 
-```
+```notes
 Good boxes, too! 
 ```
 
@@ -134,6 +149,12 @@ We just called them Virtual Machines. And lots of companies like Heroku or AWS o
 ---
 
 ## Why were _these_ successful?
+
+```notes
+They were really successful, they changed their respective worlds.
+
+I don't have time to go into it
+```
 
 ---
 
@@ -157,65 +178,40 @@ Docker was much more restrictive, the images were dozens or hundreds of megabyte
 ## What _FABs_ aim to do:
 
 ### • Fit-for-purpose
-### • Platform-agnostic
 ### • Open-source
+### • Platform-agnostic
 ### • Timely
 
 ```notes
 I'm going to come back to platform-agnostic at the end but I've been here talking X minutes so I think it's probably time to talk about FABs themselves, hey?
 
 I don't have time to go into much detail, obviously the open-source bit is somewhat of a given, I'll just focus on the first one for the moment.
-
 ```
 
 ---
 
-## Deploying a frontend app in 2019:
-### • Use an existing container format
-### • Go static only
+export default Layouts.Image(
+  require('file-loader!./assets/keynote/keynote.001.png')
+)
 
 ---
 
-export default Layouts.Light
-
-![](./assets/kubernetes.png)
-
-```notes
-
-```
+export default Layouts.Image(
+  require('file-loader!./assets/keynote/keynote.002.png')
+)
 
 ---
 
-## Frontend is a <br/>_smaller concern_
+export default Layouts.Image(
+  require('file-loader!./assets/keynote/keynote.001.png')
+)
 
 ---
 
-## Static hosting
+# Demo
 
----
+https://github.com/fab-spec/fab-nextjs-example
 
-## "Static" hosting
-
-* Static assets
-* HTTP Headers
-* Redirects
-* API proxying
-
----
-
-export default Layouts.Light
-
-![](./assets/netlify-headers.png)
-
----
-
-export default Layouts.Light
-
-![](./assets/netlify-redirects.png)
-
----
-
-## The future _isn't static_
 
 ---
 
@@ -230,32 +226,6 @@ https://fab.dev
 <br/>
 
 https://github.com/fab-spec/fab
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/keynote/keynote.001.png')
-)
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/keynote/keynote.002.png')
-)
-
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/keynote/keynote.003.png')
-)
-
-
----
-
-export default Layouts.Image(
-  require('file-loader!./assets/keynote/keynote.004.png')
-)
 
 ---
 
@@ -277,11 +247,10 @@ _@fab/lambda-edge_ - deploy FAB to Lambda@Edge<br/>
 _@fab/now-sh_ - deploy FAB to Now.sh<br/>
 _@fab/heroku_ – deploy FAB to Heroku<br/>
 
+
 ---
 
-# Demo
-
-https://github.com/fab-spec/fab-nextjs-example
+## The future _isn't static_
 
 ---
 
@@ -310,8 +279,10 @@ export default Layouts.Gradient
 
 ## _Linc roadmap_
 
+* Build on each push to Github&nbsp;✅
 * Preview links per commit &nbsp;✅
 * Instant releases on PR merge &nbsp;✅
+* Release to any FAB environment&nbsp;✅
 * Blue/green deployments
 * Canary deployments
 * A/B testing between FABs
@@ -324,8 +295,8 @@ export default Layouts.Gradient
 
 # Thankyou!
 
-https://fab.dev
+### https://fab.dev
 
-https://github.com/fab-spec/fab
+### https://github.com/fab-spec/fab
 
-@glenmaddern
+### @glenmaddern
