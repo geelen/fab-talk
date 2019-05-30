@@ -16,12 +16,12 @@ export { default as theme } from './theme'
 </Head>
 
 ## Frontend Application Bundles
-### BerlinJS May 2019
+### _BerlinJS May 2019_
 
 _@glenmaddern_
 
 ```notes
-Notes are working!
+Hi everyone, let’s get started!
 ```
 
 ---
@@ -45,7 +45,7 @@ export default Layouts.Light
 
 ![](./assets/fab-logo.png)
 
-### The Docker of Frontend
+#### <br/>The Docker of Frontend
 
 ```notes
 Hands up if:
@@ -119,79 +119,54 @@ export default Layouts.Image(
 
 ### There were _shipping containers_<br/>before the _Intermodal Container_
 
+```
+Good boxes, too! 
+```
+
 ---
 
 ### There were _software containers_<br/>before _Docker_
 
----
-
-## Virtual Machines
-
----
-
-export default Layouts.Light
-
-![](./assets/vms-vs-docker.png)
-
-<figcaption>https://www.docker.com/resources/what-container</figcaption>
-
 ```notes
-
+We just called them Virtual Machines. And lots of companies like Heroku or AWS or VMWare were doing really clever things with their platforms, lots of the same things you can do these days, but Docker was different.
 ```
 
 ---
 
-## Docker was more _restrictive_
+## Why were _these_ successful?
 
 ---
 
-## Docker was _smaller_
+## Why were _these_ successful?
 
-Virtual Machine: ~GBs
-
-Docker Image: ~100s MBs
-
----
-
-### Docker was _better,_ but that's not why it's been so successful
-
----
-
-export default Layouts.Light
-
-![](./assets/container.png)
+### • Fit-for-purpose
+### • Open-source
+### • Platform-agnostic
+### • Timely
 
 ```notes
+Talk about how both intermodal containers and docker match these.
 
+ICs were well-designed, but the crucial aspect was that the patents were given away to industry, effectively making them open source, so anyone can use them. They were designed to work with anyone's trucks, anyone's ships, and they came just at the right time as the world was changing after world war 2.
+
+Docker was much more restrictive, the images were dozens or hundreds of megabytes instead of multiple gigs, but the big thing was that it ran everywhere, you weren't locked into any particular hosting platform to make use of this new architecture.
 ```
 
 ---
 
-> After helping McLean create the successful design, _Tantlinger convinced him to give away the patents,_ creating an international standard.
+## What _FABs_ aim to do:
 
-<figcaption>
-  https://en.wikipedia.org/wiki/Containerization
-</figcaption>
+### • Fit-for-purpose
+### • Platform-agnostic
+### • Open-source
+### • Timely
 
----
+```notes
+I'm going to come back to platform-agnostic at the end but I've been here talking X minutes so I think it's probably time to talk about FABs themselves, hey?
 
-## Docker was <br/>_open source_ &<br/>_platform agnostic_
+I don't have time to go into much detail, obviously the open-source bit is somewhat of a given, I'll just focus on the first one for the moment.
 
----
-
-### Before standardisation<br/>_vs_<br/>After standardisation
-
----
-
-## _Platform-centric_ innovation
-
----
-
-## _Problem-centric_ innovation
-
----
-
-## What about FABs?
+```
 
 ---
 
@@ -206,7 +181,7 @@ export default Layouts.Light
 ![](./assets/kubernetes.png)
 
 ```notes
-Using a sledgehammer to crack a nut
+
 ```
 
 ---
@@ -244,7 +219,17 @@ export default Layouts.Light
 
 ---
 
-# Frontend Application Bundles
+export default Layouts.Light
+
+![](./assets/fab-logo.png)
+
+#
+
+https://fab.dev
+
+<br/>
+
+https://github.com/fab-spec/fab
 
 ---
 
@@ -274,51 +259,41 @@ export default Layouts.Image(
 
 ---
 
-##### NPM Packages
+export default Layouts.Code
 
-```text
-Compilers:
-@fab/static - compile a FAB from a static dir
-@fab/nextjs - compile a NextJS v8 project
-@fab/afterjs - compile a AfterJS project
-@fab/compile - used internally by the above
+# NPM Packages
 
-Runners:
-@fab/serve - run a FAB in a NodeJS express server
-@fab/cf-workers - deploy FAB to a Cloudflare Worker
-@fab/lambda-edge - deploy FAB to Lambda@Edge
-```
+### Compilers:
+_@fab/static_ - compile a FAB from a static dir<br/>
+_@fab/cra_ - zero-config version of @fab/static for CRA<br/>
+_@fab/nextjs_ - compile a NextJS v8 project<br/>
+_@fab/afterjs_ - compile a AfterJS project<br/>
+_@fab/compile_ - used internally by the above<br/>
+
+### Runtimes:
+_@fab/serve_ - run a FAB in a NodeJS express server<br/>
+_@fab/cf-workers_ - deploy FAB to a Cloudflare Worker<br/>
+_@fab/lambda-edge_ - deploy FAB to Lambda@Edge<br/>
+_@fab/now-sh_ - deploy FAB to Now.sh<br/>
+_@fab/heroku_ – deploy FAB to Heroku<br/>
 
 ---
 
 # Demo
 
----
-
-export default Layouts.Light
-
-![](./assets/fab-logo.png)
-
-#
-
-https://fab.dev
-
-https://github.com/fab-spec/fab
+https://github.com/fab-spec/fab-nextjs-example
 
 ---
 
-## Development Status
+### Before standardisation<br/>_vs_<br/>After standardisation
 
-* FAB compilers
-  * `@fab/static` released & documented
-  * `@fab/nextjs` working, in active development
-  * `@fab/afterjs` needs updating
+---
 
+## _Platform-centric_ innovation
 
-* FAB deployers
-  * `@fab/serve` no environments, not production ready
-  * `@fab/cf-workers` Linc only, not yet open-sourced
-  * `@fab/lambda-edge` Linc only, not yet open-sourced
+---
+
+## _Problem-centric_ innovation
 
 ---
 

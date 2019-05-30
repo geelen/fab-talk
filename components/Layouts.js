@@ -82,7 +82,27 @@ const CodeSlide = styled.div`
 
   h1 {
     font-size: 2em;
-    margin: 4rem 0 0;
+    margin: 0;
+  }
+  
+  h3 {
+    margin-top: 1em;
+  }
+  
+  h3, p {
+    font-family: Operator Mono SSm, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 1.2em;
+    text-align: left;
+  }    
+  
+  p {
+    font-size: 1.1em;
+  }
+  
+  em {
+    color: #34e4e4;
+    font-style: normal;
+    font-weight: 600;
   }
 `
 
